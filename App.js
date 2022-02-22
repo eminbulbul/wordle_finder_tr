@@ -1,8 +1,17 @@
-const kelime = ["ab","aba","abacı","abacılık","abadi"];
+let player = 'abac'
 
-// let kullanıcı = prompt("tahmin");
+const kelime = ["abacı","abalı","abadi"];;
 
-if (kelime[i].includes(kullanıcı)) {
-    console.log(kelime[i]);
+let letterOne = document.getElementById('letterone')
+let letterTwo = document.getElementById('letterone')
+
+
+
+
+
+for (let index = 0; index < kelime.length; index++) {
+    if (kelime[index][3] == player[3]) {
+        console.log(kelime[index]);
+    }
 }
 
