@@ -8,17 +8,22 @@
 </head>
 <body>
     <div>
-        <h1>Wordle Finder</h1>
+        <h1>Wordle FinderTR</h1>
         <h4>Bu uygulama ile zorlandığınız kelimeleri bulabilirsiniz</h4>
         <div>
-            <input type="text" name="finder" id="letterone" style="width: 20px;">
-            <input type="text" name="finder" id="lettertwo" style="width: 20px;">
-            <input type="text" name="finder" id="letterthree" style="width: 20px;">
-            <input type="text" name="finder" id="letterfour" style="width: 20px;">
-            <input type="text" name="finder" id="letterfive" style="width: 20px;">
+            <input type="text" name="finder" id="letterone" style="width: 15px;" maxlength="1">
+            <input type="text" name="finder" id="lettertwo" style="width: 15px;" maxlength="1">
+            <input type="text" name="finder" id="letterthree" style="width: 15px;" maxlength="1">
+            <input type="text" name="finder" id="letterfour" style="width: 15px;" maxlength="1">
+            <input type="text" name="finder" id="letterfive" style="width: 15px;" maxlength="1">
             <button id="find">Kelime ara</button>
         </div>
+        <div>
+            <span id="result"></span>
+        </div>
     </div>
+    <script src="./five_letters.js"></script>
     <script src="./App.js"></script>
+
 </body>
 </html>
