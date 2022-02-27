@@ -1,56 +1,43 @@
-
 //5 harfli türkçe kelimelerin olduğu array (five_letters.js den geliyor)
 const letters = fiveLetters;
 
-const findWord =document.getElementById("find");
-let letterOne = document.getElementById('letterone');
-let letterTwo = document.getElementById('lettertwo');
-let letterThree = document.getElementById('letterthree');
-let letterFour = document.getElementById('letterfour');
-let letterFive = document.getElementById('letterfive');
+const findWord = document.getElementById("find");
+let letterOne = document.getElementById("letterone");
+let letterTwo = document.getElementById("lettertwo");
+let letterThree = document.getElementById("letterthree");
+let letterFour = document.getElementById("letterfour");
+let letterFive = document.getElementById("letterfive");
+let reset =document.getElementById("reset");
+let result = document.getElementById("result");
 
-let result =document.getElementById("result");
+let playerArray = [];
 
+reset.addEventListener("click",()=>{
+    playerArray = [];
+}),
 
-findWord.addEventListener("click",()=>{
-    let playerArray = [];
-  
-    if (letterOne.value != "") {
-        playerArray.push(letterOne.value);
-    }else{
-        playerArray.push("*");
+findWord.addEventListener("click", () => {
+  if (letterOne.value != "") {
+    playerArray.push(letterOne.value);
+  } 
+  if (letterTwo.value != "") {
+    playerArray.push(letterTwo.value);
+  } 
+  if (letterThree.value != "") {
+    playerArray.push(letterThree.value);
+  } 
+  if (letterFour.value != "") {
+    playerArray.push(letterFour.value);
+  } 
+  if (letterFive.value != "") {
+    playerArray.push(letterFive.value);
+  }
+
+  let newPlayerArray = playerArray.join("").toLowerCase();
+
+  for (let index = 0; index < letters.length; index++) {
+    if (letters[index].includes(newPlayerArray)) {
+      console.log(letters[index]);
     };
-    if (letterTwo.value != "") {
-        playerArray.push(letterTwo.value);
-    }else{
-        playerArray.push("*");
-    };
-    if (letterThree.value != "") {
-        playerArray.push(letterThree.value);
-    }else{
-        playerArray.push("*");
-    };
-    if (letterFour.value != "") {
-        playerArray.push(letterFour.value);
-    }else{
-        playerArray.push("*");
-    };
-    if (letterFive.value != "") {
-        playerArray.push(letterFive.value);
-    }else{
-        playerArray.push("*");
-    };
-
-    playerArray = playerArray.join("").toLowerCase();
-
-    
-
+  };
 });
-
-
-// for (let index = 0; index < letters.length; index++) {
-//     if (letters[index][3] == player[3]) {
-//         console.log(letters[index]);
-//     }
-// }
-
