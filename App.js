@@ -33,7 +33,7 @@ findWord.addEventListener("click", () => {
     playerArray.push(letterFive.value);
   }
 
-  let newPlayerArray = playerArray.join("").toLowerCase();
+  let newPlayerArray = playerArray.join("").toLocaleLowerCase();
 
   for (let index = 0; index < letters.length; index++) {
     if (letters[index].includes(newPlayerArray)) {
@@ -41,3 +41,6 @@ findWord.addEventListener("click", () => {
     };
   };
 });
+
+// tum kutuphane icerisinde kalan degiskenlerin indexlerine denk gelen harflere bak. 5 ayri dizi yap. eger dogru ise dizinin icine atsin.
+//daha sonra bu 5 dizinin kesimini bul. sonuc dogru verir.
