@@ -1,59 +1,76 @@
-// //5 harfli türkçe kelimelerin olduğu array (five_letters.js den geliyor)
-// const letters = fiveLetters;
+//5 harfli türkçe kelimelerin olduğu array (five_letters.js den geliyor)
+const letters = fiveLetters;
 
-// const findWord = document.getElementById("find");
-// let letterOne = document.getElementById("letterone");
-// let letterTwo = document.getElementById("lettertwo");
-// let letterThree = document.getElementById("letterthree");
-// let letterFour = document.getElementById("letterfour");
-// let letterFive = document.getElementById("letterfive");
-// let reset =document.getElementById("reset");
-// let result = document.getElementById("result");
+const findWord = document.getElementById("find");
+let letterOne = document.getElementById("letterone");
+let letterTwo = document.getElementById("lettertwo");
+let letterThree = document.getElementById("letterthree");
+let letterFour = document.getElementById("letterfour");
+let letterFive = document.getElementById("letterfive");
+let reset = document.getElementById("reset");
+let result = document.getElementById("result");
 
-// let playerArray = [];
+let searchResult ;
+let playerArray ;
 
-// reset.addEventListener("click",()=>{
-//     playerArray = [];
-// }),
-
-// findWord.addEventListener("click", () => {
-//   if (letterOne.value != "") {
-//     playerArray.push(letterOne.value);
-//   } 
-//   if (letterTwo.value != "") {
-//     playerArray.push(letterTwo.value);
-//   } 
-//   if (letterThree.value != "") {
-//     playerArray.push(letterThree.value);
-//   } 
-//   if (letterFour.value != "") {
-//     playerArray.push(letterFour.value);
-//   } 
-//   if (letterFive.value != "") {
-//     playerArray.push(letterFive.value);
-//   }
-
-//   let newPlayerArray = playerArray.join("").toLocaleLowerCase();
-
-//   for (let index = 0; index < letters.length; index++) {
-//     if (letters[index].includes(newPlayerArray)) {
-//       console.log(letters[index]);
-//     };
-//   };
-// });
-
-// tum kutuphane icerisinde kalan degiskenlerin indexlerine denk gelen harflere bak. 5 ayri dizi yap. eger dogru ise dizinin icine atsin.
-//daha sonra bu 5 dizinin kesimini bul. sonuc dogru verir.
+let indexOne = [];
+let indexTwo = [];
+let indexThree = [];
+let indexFour = [];
+let indexFive = [];
 
 
+let wrongLetter = [];
 
+reset.addEventListener("click", () => {
+  playerArray = [];
+  indexOne = [];
+  indexTwo = [];
+  indexThree = [];
+  indexFour = [];
+  indexFive = [];
+  wrongLetter = [];
+}),
+  findWord.addEventListener("click", () => {
+        letters.forEach(a => {
+            if (a.startsWith(letterOne.value)) {
+                indexOne.push(a)
+            }
+        });
+        letters.forEach(b => {
+            if (b[1] ==(letterTwo.value)) {
+                indexTwo.push(b)
+            }
+        });
+        letters.forEach(c => {
+            if (c[2] == (letterThree.value)) {
+                indexThree.push(c)
+            }
+        });
+        letters.forEach(d => {
+            if (d[3] == (letterFour.value)) {
+                indexFour.push(d)
+            }
+        });
+        letters.forEach(e => {
+            if (e[4] == (letterFive.value)) {
+                indexFive.push(e)
+            }
+        });
+    console.log(indexOne);    
+    console.log(indexTwo);    
+    console.log(indexThree);    
+    console.log(indexFour);    
+    console.log(indexFive);    
 
-// for intersection
-// var array1 = ["Lorem", "ipsum", "dolor",'ali'],
-//     array2 = ["Lorem", "ipsum", "quick", "brown", "foo",'ali'],
-//     array3 = ["Jumps", "Over", "Lazy", "Lorem",'ali'],
-//     array4 = [1337, 420, 666, "Lorem",'ali'],
-//     data = [array1, array2, array3, array4],
-//     result = data.reduce((a, b) => a.filter(c => b.includes(c)));
-//     console.log(result);
-// output : (2) ['Lorem', 'ali']
+    
+    playerArray = [indexOne, indexTwo, indexThree,indexFour, indexFive];
+    
+    playerArray = playerArray.filter(element => element !== [])
+
+    console.log(playerArray);
+    searchResult = playerArray.reduce((f, g) => f.filter(h => g.includes(h)));
+
+    console.log(searchResult);
+});
+
