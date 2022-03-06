@@ -32,45 +32,55 @@ reset.addEventListener("click", () => {
   wrongLetter = [];
 }),
   findWord.addEventListener("click", () => {
-        letters.forEach(a => {
-            if (a.startsWith(letterOne.value)) {
+            letters.forEach(a => {
+            console.log(a );
+            console.log(letterOne.value, letterTwo.value);
+            console.log(a.startsWith(letterOne.value));
+            if ((letterOne.value) && (a.startsWith(letterOne.value)) || (letterTwo.value && a[1]==(letterTwo.value))       ){
                 indexOne.push(a)
             }
         });
-        letters.forEach(b => {
-            if (b[1] ==(letterTwo.value)) {
-                indexTwo.push(b)
-            }
+        // letters.forEach(b => {
+        //     if (b[1] ==(letterTwo.value)) {
+        //         indexTwo.push(b)
+        //     }
+        // });
+        // letters.forEach(c => {
+        //     if (c[2] == (letterThree.value)) {
+        //         indexThree.push(c)
+        //     }
+        // });
+        // letters.forEach(d => {
+        //     if (d[3] == (letterFour.value)) {
+        //         indexFour.push(d)
+        //     }
+        // });
+        // letters.forEach(e => {
+        //     if (e[4] == (letterFive.value)) {
+        //         indexFive.push(e)
+        //     }
+
+
+        console.log(indexOne);
         });
-        letters.forEach(c => {
-            if (c[2] == (letterThree.value)) {
-                indexThree.push(c)
-            }
-        });
-        letters.forEach(d => {
-            if (d[3] == (letterFour.value)) {
-                indexFour.push(d)
-            }
-        });
-        letters.forEach(e => {
-            if (e[4] == (letterFive.value)) {
-                indexFive.push(e)
-            }
-        });
-    console.log(indexOne);    
-    console.log(indexTwo);    
-    console.log(indexThree);    
-    console.log(indexFour);    
-    console.log(indexFive);    
+    // console.log(indexOne);    
+    // console.log(indexTwo);    
+    // console.log(indexThree);    
+    // console.log(indexFour);    
+    // console.log(indexFive);    
 
     
-    playerArray = [indexOne, indexTwo, indexThree,indexFour, indexFive];
+    // playerArray = [indexOne, indexTwo, indexThree,indexFour, indexFive];
+
+    // console.log(playerArray);
     
-    playerArray = playerArray.filter(element => element !== [])
+    // playerArray = playerArray.filter(element => element !== [])
 
-    console.log(playerArray);
-    searchResult = playerArray.reduce((f, g) => f.filter(h => g.includes(h)));
+    
 
-    console.log(searchResult);
-});
+
+    // searchResult = playerArray.reduce((f, g) => f.filter(h => g.includes(h)));
+
+    // console.log(searchResult);
+
 
