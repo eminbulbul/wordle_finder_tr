@@ -1,6 +1,4 @@
 //5 harfli türkçe kelimelerin olduğu array (five_letters.js den geliyor)
-const letters = fiveLetters;
-
 const findWord = document.getElementById("find");
 let letterOne = document.getElementById("letterone");
 let letterTwo = document.getElementById("lettertwo");
@@ -10,77 +8,36 @@ let letterFive = document.getElementById("letterfive");
 let reset = document.getElementById("reset");
 let result = document.getElementById("result");
 
-let searchResult ;
-let playerArray ;
+reset.addEventListener("click", () => {});
 
-let indexOne = [];
-let indexTwo = [];
-let indexThree = [];
-let indexFour = [];
-let indexFive = [];
+findWord.addEventListener("click", () => {
+  const search =
+    (letterOne.value || "-") +
+    (letterTwo.value || "-") +
+    (letterThree.value || "-") +
+    (letterFour.value || "-") +
+    (letterFive.value || "-");
 
+  console.log(search);
 
-let wrongLetter = [];
+  const filteredLetters = fiveLetters.filter((letter) => {
+    let found = true;
 
-reset.addEventListener("click", () => {
-  playerArray = [];
-  indexOne = [];
-  indexTwo = [];
-  indexThree = [];
-  indexFour = [];
-  indexFive = [];
-  wrongLetter = [];
-}),
-  findWord.addEventListener("click", () => {
-            letters.forEach(a => {
-            console.log(a );
-            console.log(letterOne.value, letterTwo.value);
-            console.log(a.startsWith(letterOne.value));
-            if ((letterOne.value) && (a.startsWith(letterOne.value)) || (letterTwo.value && a[1]==(letterTwo.value))       ){
-                indexOne.push(a)
-            }
-        });
-        // letters.forEach(b => {
-        //     if (b[1] ==(letterTwo.value)) {
-        //         indexTwo.push(b)
-        //     }
-        // });
-        // letters.forEach(c => {
-        //     if (c[2] == (letterThree.value)) {
-        //         indexThree.push(c)
-        //     }
-        // });
-        // letters.forEach(d => {
-        //     if (d[3] == (letterFour.value)) {
-        //         indexFour.push(d)
-        //     }
-        // });
-        // letters.forEach(e => {
-        //     if (e[4] == (letterFive.value)) {
-        //         indexFive.push(e)
-        //     }
+    for (let i in search) {
+      if (search[i] === "-") continue;
 
+      if (search[i] !== letter[i]) {
+        found = false;
+        break;
+      }
+    }
 
-        console.log(indexOne);
-        });
-    // console.log(indexOne);    
-    // console.log(indexTwo);    
-    // console.log(indexThree);    
-    // console.log(indexFour);    
-    // console.log(indexFive);    
+    if (found) {
+      return letter;
+    }
+  });
+  console.log(filteredLetters);
+});
 
-    
-    // playerArray = [indexOne, indexTwo, indexThree,indexFour, indexFive];
-
-    // console.log(playerArray);
-    
-    // playerArray = playerArray.filter(element => element !== [])
-
-    
-
-
-    // searchResult = playerArray.reduce((f, g) => f.filter(h => g.includes(h)));
-
-    // console.log(searchResult);
-
-
+// kendime not:
+// sonucu result spanının içine yazdır. daha sonra harf ele tuşuna basarak result spani içindeki sonuçları ele. bootstrap ile nasıl çalıştığı hakkında bir gif koy ve açılış sayfasında bunu oynat. çok güzel bir uygulama olacak.
