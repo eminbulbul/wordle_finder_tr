@@ -7,6 +7,8 @@ let letterFour = document.getElementById("letterfour");
 let letterFive = document.getElementById("letterfive");
 let reset = document.getElementById("reset");
 let result = document.getElementById("result");
+let removeLetter = document.getElementById("addwl");
+let remIn = document.getElementById("wrongletter");
 
 reset.addEventListener("click", () => {});
 
@@ -31,12 +33,32 @@ findWord.addEventListener("click", () => {
         break;
       }
     }
-
     if (found) {
       return letter;
     }
   });
-  console.log(filteredLetters);
+
+  console.log("filtered letters is  " + filteredLetters);
+
+  filteredLetters.forEach((element) => {
+    result.innerText += element + "\n";
+  });
+
+  let eLetter = [];
+
+  removeLetter.addEventListener("click", () => {
+    result.innerText = "";
+
+    eLetter.push(remIn.value);
+
+    console.log(eLetter);
+
+    let erasedLetters = filteredLetters.filter((e) => !e.includes(eLetter));
+
+    erasedLetters.forEach((fixed) => {
+      result.innerText += fixed + "\n";
+    });
+  });
 });
 
 // kendime not:
