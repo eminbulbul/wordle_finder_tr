@@ -38,7 +38,7 @@ findWord.addEventListener("click", () => {
     }
   });
 
-  console.log("filtered letters is  " + filteredLetters);
+  console.log("filtered letters are  " + filteredLetters);
 
   filteredLetters.forEach((element) => {
     result.innerText += element + "\n";
