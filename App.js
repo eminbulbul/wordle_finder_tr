@@ -15,63 +15,71 @@ reset.addEventListener("click", () => {
 });
 
 findWord.addEventListener("click", () => {
-  result.innerText = "";
-  const search =
-    (letterOne.value.toLocaleLowerCase("tr") || "-") +
-    (letterTwo.value.toLocaleLowerCase("tr") || "-") +
-    (letterThree.value.toLocaleLowerCase("tr") || "-") +
-    (letterFour.value.toLocaleLowerCase("tr") || "-") +
-    (letterFive.value.toLocaleLowerCase("tr") || "-");
-
-  console.log(search);
-
-  let filteredLetters = fiveLetters.filter((letter) => {
-    let found = true;
-
-    for (let i in search) {
-      if (search[i] === "-") continue;
-
-      if (search[i] !== letter[i]) {
-        found = false;
-        break;
-      }
-    }
-    if (found) {
-      return letter;
-    }
-  });
-
-  console.log("filtered letters are  " + filteredLetters);
-
-  filteredLetters.forEach((element) => {
-    result.innerText += element + "\n";
-  });
-
-  let eLetter = [];
-
-  removeLetter.addEventListener("click", () => {
+  if (
+    letterOne.value ||
+    letterTwo.value ||
+    letterThree.value ||
+    letterFour.value ||
+    letterFive.value != ""
+  ) {
     result.innerText = "";
+    const search =
+      (letterOne.value.toLocaleLowerCase("tr") || "-") +
+      (letterTwo.value.toLocaleLowerCase("tr") || "-") +
+      (letterThree.value.toLocaleLowerCase("tr") || "-") +
+      (letterFour.value.toLocaleLowerCase("tr") || "-") +
+      (letterFive.value.toLocaleLowerCase("tr") || "-");
 
-    eLetter.push(remIn.value.toLocaleLowerCase("tr"));
+    console.log(search);
 
-    console.log(eLetter);
+    let filteredLetters = fiveLetters.filter((letter) => {
+      let found = true;
 
-    let erasedLetters = filteredLetters.filter((e) => {
-      let doesInclude = false;
-      for (let harf of eLetter) {
-        if (e.includes(harf)) {
-          doesInclude = true;
+      for (let i in search) {
+        if (search[i] === "-") continue;
+
+        if (search[i] !== letter[i]) {
+          found = false;
+          break;
         }
       }
-      if (!doesInclude) return e;
+      if (found) {
+        return letter;
+      }
     });
 
-    console.log(filteredLetters);
+    console.log("filtered letters are  " + filteredLetters);
 
-    erasedLetters.forEach((fixed) => {
-      result.innerText += fixed + "\n";
+    filteredLetters.forEach((element) => {
+      result.innerText += element + "\n";
     });
-  });
+
+    let eLetter = [];
+
+    removeLetter.addEventListener("click", () => {
+      result.innerText = "";
+
+      eLetter.push(remIn.value.toLocaleLowerCase("tr"));
+
+      console.log(eLetter);
+
+      let erasedLetters = filteredLetters.filter((e) => {
+        let doesInclude = false;
+        for (let harf of eLetter) {
+          if (e.includes(harf)) {
+            doesInclude = true;
+          }
+        }
+        if (!doesInclude) return e;
+      });
+
+      console.log(filteredLetters);
+
+      erasedLetters.forEach((fixed) => {
+        result.innerText += fixed + "\n";
+      });
+    });
+  }
 });
 
 // kendime not:

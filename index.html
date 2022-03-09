@@ -3,72 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
     <title>Wordle finder</title>
+    <style>
+      input{
+        width: 2rem;
+        height: 2rem;
+        border: solid 0.13rem black;
+      }
+      #result{
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+    </style>
   </head>
-  <body>
-    <div>
-      <h1>Wordle FinderTR</h1>
-      <h4>
-        Bu uygulama ile wordle oyunu icinde zorlandığınız kelimeleri
-        bulabilirsiniz
-      </h4>
-      <div>
-        <input
-          type="text"
-          name="finder"
-          id="letterone"
-          style="width: 15px"
-          maxlength="1"
-        />
-        <input
-          type="text"
-          name="finder"
-          id="lettertwo"
-          style="width: 15px"
-          maxlength="1"
-        />
-        <input
-          type="text"
-          name="finder"
-          id="letterthree"
-          style="width: 15px"
-          maxlength="1"
-        />
-        <input
-          type="text"
-          name="finder"
-          id="letterfour"
-          style="width: 15px"
-          maxlength="1"
-        />
-        <input
-          type="text"
-          name="finder"
-          id="letterfive"
-          style="width: 15px"
-          maxlength="1"
-        />
+  <body class="">
+    <div class="mx-auto" style="width:40rem" >
+      
+    <h1 class="mx-auto ps-5" >Wordle FinderTR</h1>
+    <br><br>
+    <h5 class="mx-auto ps-4">
+        Bu uygulama ile <a href="https://www.bundle.app/wordle-tr/" target="_blank" style="font-weight: 500;">WordleTR</a> oyunu icinde <br> zorlandığınız kelimeleri bulabilirsiniz.
+      </h5>
+      <br>
+      <br>
+      <div class="mx-auto ps-3 ">
+        <input  type="text" name="finder" id="letterone" maxlength="1" />
+        <input type="text" name="finder" id="lettertwo" maxlength="1" />
+        <input type="text" name="finder" id="letterthree" maxlength="1" />
+        <input type="text" name="finder" id="letterfour" maxlength="1" />
+        <input type="text" name="finder" id="letterfive" maxlength="1" />
 
-        <button id="find">Kelime ara</button>
+        <button id="find" type="button" style="color: white;" class="btn btn-info">Kelime ara</button>
 
-        <button id="reset">Sıfırla</button>
+        <button id="reset" type="button" style="color: white;" class="btn btn-info">Sıfırla</button>
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalim">Nasıl Kullanılır</button>
+  
+      <div class="modal" id="modalim">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4>Nasıl Kullanılır</h4>
+                      <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <div class="modal-body" style="font-weight: 500;">
+                    <a href="https://www.bundle.app/wordle-tr/" target="_blank" style="font-weight: 500;">Wordle</a>  oyunu içerisinde birkaç deneme yaptıktan sonra, yeri ve karakteri belirlenmiş olan (Wordle oyunu içinde arkası <span style="color: white; background-color: rgb(110, 160, 36); font-weight: 600;">  YEŞİL  </span>  olanlar) harfleri kelime ara buttonu yanındaki uygun kutucuklara girerek kelime ara butonuna tıklayınız.
+                    <br>
+                    <img style="width: auto;" src="./img/how1.jpg" alt="how to image 3">
+                    <br>
+                    Kelimenin içerisinde bulunmayan harfleri (Wordle oyunu içerisinde arkası <span style="color: white; background-color: grey; font-weight: 600;"> GRİ </span> olanlar)
+                    harf ele butonu kutucuğuna girek ve "Harf ile Kelime Ele" tuşuna basarak doğru kelimeyi bulabilirsiniz.
+                    <br>
+                    <img src="./img/how2.jpg" alt="how to image 2">
+                  </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-info" style="color: white;" data-bs-dismiss="modal" >Tamam</button>
+                     
+                  </div>
+  
+              </div>
+          </div>
+  
+      </div>
       </div>
       <br />
-      <div>
-        <input
-          type="text"
-          name="finder"
-          id="wrongletter"
-          style="width: 15px"
-          maxlength="1"
-        />
-        <button id="addwl">Harf Ele</button>
+      <div class="mx-auto ps-3 ">
+        <input type="text" name="finder" id="wrongletter" maxlength="1" />
+        <button id="addwl" type="button" class="btn btn-danger">Harf ile Kelime Ele</button>
       </div>
-      <div>
+      <div class="mx-auto mt-3" style="height: 30rem; overflow: auto;">
         <span id="result"></span>
       </div>
-    </div>
+      <br>
+      <figcaption class="blockquote-footer">
+        Developed by <cite title="Source Title">Mehmet Emin Bülbül for F.Demir</cite>
+      </figcaption>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script src="./five_letters.js"></script>
     <script src="./App.js"></script>
   </body>
