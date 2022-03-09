@@ -17,11 +17,11 @@ reset.addEventListener("click", () => {
 findWord.addEventListener("click", () => {
   result.innerText = "";
   const search =
-    (letterOne.value || "-") +
-    (letterTwo.value || "-") +
-    (letterThree.value || "-") +
-    (letterFour.value || "-") +
-    (letterFive.value || "-");
+    (letterOne.value.toLocaleLowerCase("tr") || "-") +
+    (letterTwo.value.toLocaleLowerCase("tr") || "-") +
+    (letterThree.value.toLocaleLowerCase("tr") || "-") +
+    (letterFour.value.toLocaleLowerCase("tr") || "-") +
+    (letterFive.value.toLocaleLowerCase("tr") || "-");
 
   console.log(search);
 
@@ -52,7 +52,7 @@ findWord.addEventListener("click", () => {
   removeLetter.addEventListener("click", () => {
     result.innerText = "";
 
-    eLetter.push(remIn.value);
+    eLetter.push(remIn.value.toLocaleLowerCase("tr"));
 
     console.log(eLetter);
 
