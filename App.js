@@ -10,9 +10,12 @@ let result = document.getElementById("result");
 let removeLetter = document.getElementById("addwl");
 let remIn = document.getElementById("wrongletter");
 
-reset.addEventListener("click", () => {});
+reset.addEventListener("click", () => {
+  window.location.reload(false);
+});
 
 findWord.addEventListener("click", () => {
+  result.innerText = "";
   const search =
     (letterOne.value || "-") +
     (letterTwo.value || "-") +
@@ -22,7 +25,7 @@ findWord.addEventListener("click", () => {
 
   console.log(search);
 
-  const filteredLetters = fiveLetters.filter((letter) => {
+  let filteredLetters = fiveLetters.filter((letter) => {
     let found = true;
 
     for (let i in search) {
@@ -53,7 +56,17 @@ findWord.addEventListener("click", () => {
 
     console.log(eLetter);
 
-    let erasedLetters = filteredLetters.filter((e) => !e.includes(eLetter));
+    let erasedLetters = filteredLetters.filter((e) => {
+      let doesInclude = false;
+      for (let harf of eLetter) {
+        if (e.includes(harf)) {
+          doesInclude = true;
+        }
+      }
+      if (!doesInclude) return e;
+    });
+
+    console.log(filteredLetters);
 
     erasedLetters.forEach((fixed) => {
       result.innerText += fixed + "\n";
