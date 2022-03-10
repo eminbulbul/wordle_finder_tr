@@ -81,6 +81,3 @@ findWord.addEventListener("click", () => {
     });
   }
 });
-
-// kendime not:
-// sonucu result spanının içine yazdır. daha sonra harf ele tuşuna basarak result spani içindeki sonuçları ele. bootstrap ile nasıl çalıştığı hakkında bir gif koy ve açılış sayfasında bunu oynat. çok güzel bir uygulama olacak.
